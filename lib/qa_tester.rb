@@ -1,0 +1,3 @@
+class QaTester
+
+end
