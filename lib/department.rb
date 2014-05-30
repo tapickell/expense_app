@@ -1,5 +1,6 @@
 require "management"
+require "report_generation"
 
 class Department < Management
-  require 'report_generation'
+  include ReportGeneration
 end
