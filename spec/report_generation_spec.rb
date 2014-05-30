@@ -1,8 +1,7 @@
 require "report_generation"
 
 describe ReportGeneration do
-  class TestClass
-  end
+  class TestClass; end
 
   before(:each) do
     subject { TestClass.new }
