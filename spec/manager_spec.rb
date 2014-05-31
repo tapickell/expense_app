@@ -1,8 +1,7 @@
 require "manager"
+require "developer"
 
 describe Manager do
-  class Developer
-  end
 
   before(:each) do
     subject { Manager.new }

@@ -19,18 +19,18 @@ class Management
     allocations
   end
 
+  def is_management?
+    true
+  end
+
   private
 
   def allocation_amount_for(employee)
-    if employee_is_management(employee)
+    if employee.is_management?
       employee.employee_allocations
     else
       mapped_allocation_for(employee)
     end
-  end
-
-  def employee_is_management(employee)
-    (employee.class.superclass.name == 'Management') || (employee.class.name == 'Management')
   end
 
   def mapped_allocation_for(employee)

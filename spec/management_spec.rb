@@ -1,9 +1,10 @@
 require "management"
+require "non_management"
+require "developer"
+require "qa_tester"
+require "manager"
 
 describe Management do
-  class Developer; end
-  class QaTester; end
-  class Manager < Management; end
 
   before(:each) do
     subject { Management.new }
@@ -20,7 +21,7 @@ describe Management do
     subject.employees.should include(developer)
   end
 
-  it 'can calculate its waranted allocation amount' do
+  it 'can calculate its allocation amount' do
     developer = Developer.new
     subject.add_employee(developer)
 

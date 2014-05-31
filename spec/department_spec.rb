@@ -1,8 +1,7 @@
 require "department"
+require "developer"
 
 describe Department do
-  class Developer
-  end
 
   before(:each) do
     subject { Department.new }
