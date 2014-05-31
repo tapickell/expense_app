@@ -1,13 +1,28 @@
-require "entity"
+require "yaml"
 
-class Management < Entity
-  attr_reader :employee_allocations
+class Management
+  attr_reader :employees
 
   def initialize
-    @employee_allocations = [self.allocation_amount]
+    @employees = []
   end
 
   def add_employee(employee)
-    @employee_allocations << employee.allocation_amount
+    @employees << employee
+  end
+
+  def employee_allocations
+    allocations = allocation_amount_for(self)
+    @employees.each do |employee|
+      allocations += allocation_amount_for(employee)
+    end
+    allocations
+  end
+
+  private
+
+  def allocation_amount_for(employee)
+    allocation_map = YAML.load_file('lib/allocations.yml')
+    allocation_map[employee.class.name] || 0
   end
 end

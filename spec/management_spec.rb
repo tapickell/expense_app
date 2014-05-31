@@ -1,22 +1,27 @@
 require "management"
-require "entity"
 
 describe Management do
-  class TestClass < Entity
-    ALLOCATION_AMOUNT = 2000
+  class Developer
   end
 
   before(:each) do
     subject { Management.new }
   end
 
-  it 'starts without any employees' do
+  it 'initializes without any employees' do
     subject.employees.should be_empty
   end
 
   it 'can be assigned employees' do
-    subject.add_employee(TestClass.new)
-    subject.employee_allocations.should include(2000)
+    developer = Developer.new
+    subject.add_employee(developer)
+    subject.employees.should include(developer)
+  end
+
+  it 'can calculate its waranted allocation amount' do
+    developer = Developer.new
+    subject.add_employee(developer)
+    subject.employee_allocations.should eq(1000)
   end
 
 end
