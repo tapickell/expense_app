@@ -1,5 +1,5 @@
 module Allocation
   def allocation_amount
-    "All the money$$$"
+    "$#{ @amount }"
   end
 end

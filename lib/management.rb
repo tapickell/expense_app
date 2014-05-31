@@ -1,11 +1,13 @@
-class Management
-  attr_reader :employees
+require "entity"
+
+class Management < Entity
+  attr_reader :employee_allocations
 
   def initialize
-    @employees = []
+    @employee_allocations = [self.allocation_amount]
   end
 
   def add_employee(employee)
-    @employees << employee
+    @employee_allocations << employee.allocation_amount
   end
 end

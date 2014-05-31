@@ -9,6 +9,6 @@ describe Allocation do
   end
 
   it 'can returns its allocation amount' do
-    subject.allocation_amount.should eq("All the money$$$")
+    subject.allocation_amount.should eq("$")
   end
 end
