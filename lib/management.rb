@@ -34,7 +34,7 @@ class Management
   end
 
   def mapped_allocation_for(employee)
-    allocation_map = YAML.load_file('lib/allocations.yml')
+    allocation_map = YAML.load_file('allocations.yml')
     allocation_map[employee.class.name] || 0
   end
 end
